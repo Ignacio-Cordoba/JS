@@ -47,7 +47,7 @@ function imprimirarray() {
 }
 
 function imprimirimc() {
-  console.log(newUsuario.imc);
+  console.log(array[0].imc);
 }
 
 const arraycarrito= []
@@ -94,4 +94,5 @@ function BotonMusculacion() {
 function BotonCalistenia() {
   AñadirPlanes(plan2)
 }
+
 
