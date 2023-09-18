@@ -118,14 +118,14 @@ boton4.addEventListener('click', () => {
 })
 
 
-const botonCrearUsuario = document.getElementById("crearUsuario")
+const botonCrearUsuario = document.getElementById("crearUsuario");
 botonCrearUsuario.addEventListener("click", function () {
-  
-  if(validarCampos){
-  const newUsuario = crearusuario()
-  array.push(newUsuario)
+  if (validarCampos()) {
+    const newUsuario = crearusuario();
+    array.push(newUsuario);
+  }
 
-}
+
 
 
 
@@ -154,7 +154,6 @@ boton_mostrar_carrito= document.getElementById('boton_print_carrito')
 boton_mostrar_carrito.addEventListener('click',() => {
   print_carrito.innerHTML=""
   arraycarrito.forEach(arraycarrito=> {
-
     
 
     const li = document.createElement("li")
@@ -198,7 +197,6 @@ function LimpiarInputs(altura, peso, nombre) {
         
 })
 
-
 function validarCampos() {
   const nombre = document.getElementById("nombre").value;
   const altura = parseFloat(document.getElementById("altura").value);
@@ -216,3 +214,5 @@ function validarCampos() {
 
   return true;
 }
+
+
