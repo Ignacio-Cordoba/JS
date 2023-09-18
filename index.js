@@ -16,23 +16,13 @@ function calcularimc(peso, altura) {
   return imc.toFixed(2);
 }
 
-const arraycarrito = []
 
-function ObtenerCarrito() {
-  const carrito = localStorage.getItem('carrito')
-  return JSON.parse(carrito) || []
-}
-
-function GuardarCarrito(nuevoCarrito) {
-  const carrito = JSON.stringify(nuevoCarrito)
-  localStorage.setItem('carrito', carrito)
-}
+const arraycarrito = JSON.parse(localStorage.getItem('carrito')) || []
 
 
 function AñadirPlanes(plan) {
-  const carrito = ObtenerCarrito()
-  carrito.push(plan)
-  GuardarCarrito(carrito)
+  arraycarrito.push(plan)
+  localStorage.setItem('carrito',JSON.stringify(arraycarrito))
 }
 
 
@@ -49,7 +39,7 @@ let plan2 = {
 
 
 
-const carrito = ObtenerCarrito()
+
 
 
 function BotonMusculacion() {
@@ -130,10 +120,12 @@ boton4.addEventListener('click', () => {
 
 const botonCrearUsuario = document.getElementById("crearUsuario")
 botonCrearUsuario.addEventListener("click", function () {
+  
+  if(validarCampos){
   const newUsuario = crearusuario()
   array.push(newUsuario)
 
-
+}
 
 
 
@@ -160,9 +152,13 @@ function ListaProfesionales() {
 
 boton_mostrar_carrito= document.getElementById('boton_print_carrito')
 boton_mostrar_carrito.addEventListener('click',() => {
-  carrito.forEach(carrito=> {
+  print_carrito.innerHTML=""
+  arraycarrito.forEach(arraycarrito=> {
+
+    
+
     const li = document.createElement("li")
-        li.innerHTML = carrito.nombre + "<br>" + carrito.precio + "<br>" + carrito.duracion
+        li.innerHTML = arraycarrito.nombre + "<br>" + arraycarrito.precio + "<br>" + arraycarrito.duracion
         print_carrito.append(li)
   })
 })
@@ -201,3 +197,22 @@ function LimpiarInputs(altura, peso, nombre) {
 
         
 })
+
+
+function validarCampos() {
+  const nombre = document.getElementById("nombre").value;
+  const altura = parseFloat(document.getElementById("altura").value);
+  const peso = parseFloat(document.getElementById("peso").value);
+
+  if (nombre === "") {
+    alert("Por favor, ingrese un nombre.");
+    return false;
+  }
+
+  if (isNaN(altura) || isNaN(peso) || altura <= 0 || peso <= 0) {
+    alert("Por favor, ingrese una altura y peso válidos.");
+    return false;
+  }
+
+  return true;
+}
