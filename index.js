@@ -8,6 +8,15 @@ function crearusuario() {
   usuario.altura = document.getElementById("altura").value;
   usuario.peso = document.getElementById("peso").value;
   usuario.imc = calcularimc(usuario.peso, usuario.altura);
+<<<<<<< Updated upstream
+=======
+  Swal.fire({
+    icon: 'success',
+    title: 'Hecho!',
+    text: 'Se cargaron sus datos',
+
+  })
+>>>>>>> Stashed changes
   return usuario;
 }
 
@@ -182,6 +191,7 @@ function LimpiarInputs(altura, peso, nombre) {
 
 
   LimpiarInputs("altura","peso","nombre")
+<<<<<<< Updated upstream
         .then(() => {
             Swal.fire({
     icon: 'success',
@@ -195,6 +205,8 @@ function LimpiarInputs(altura, peso, nombre) {
         })
 
         
+=======
+>>>>>>> Stashed changes
 })
 
 function validarCampos() {
