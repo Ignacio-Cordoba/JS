@@ -8,18 +8,13 @@ function crearusuario() {
   usuario.altura = document.getElementById("altura").value;
   usuario.peso = document.getElementById("peso").value;
   usuario.imc = calcularimc(usuario.peso, usuario.altura);
-    Swal.fire({
-icon: 'success',
-title: 'Hecho!',
-text: 'Se cargaron sus datos',
+  Swal.fire({
+    icon: 'success',
+    title: 'Hecho!',
+    text: 'Se cargaron sus datos',
 
-})
-
-.catch((error) => {
-    console.error(error.message)
-})
+  })
   return usuario;
-  
 }
 
 function calcularimc(peso, altura) {
@@ -193,9 +188,6 @@ function LimpiarInputs(altura, peso, nombre) {
 
 
   LimpiarInputs("altura","peso","nombre")
-   
-
-        
 })
 
 function validarCampos() {
